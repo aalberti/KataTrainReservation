@@ -1,9 +1,8 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import service.booking.BookingService;
 import service.train.TrainService;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class TicketOfficeTest {
     @Test
@@ -14,7 +13,7 @@ public class TicketOfficeTest {
 
         final var reservation = ticketOffice.makeReservation(new ReservationRequest(null, 0));
 
-        assertThat(reservation,
-                is(new Reservation(null, null, null)));
+        assertThat(reservation)
+                .isEqualTo(new Reservation(null, null, null));
     }
 }
